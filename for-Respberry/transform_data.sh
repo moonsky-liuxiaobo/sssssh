@@ -6,7 +6,6 @@ if [ "`ls -A $DIRECTORY`" = "" ];then
     exit 0
 fi
 
-
 #get raspberry id
 echo ""
 echo -e "Please input your Raspberry \033[4;31m id \033[0m."
