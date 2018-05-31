@@ -14,7 +14,7 @@ read raspberry_id
 #check SD card whether has old data
 echo ""
 if [ -f "/media/usb/data-"${raspberry_id}".tar.gz" ];then
-    echo -e "The file named \033[4;31m data.tar.gz \033[0m is already in your SD Card! Please delete or backup it first!"
+    echo -e "The file named \033[4;31m data-${raspberry_id}.tar.gz \033[0m is already in your SD Card! Please delete or backup it first!"
     echo "Please input [Y/n] and press Enter!"
     read key1
     if [ $key1 = 'y' ];then
