@@ -48,7 +48,9 @@ python manage.py train --tub=$train_list --model=models/default.h5
 echo -e "\033[4;31m train over! \033[4;31m "
 
 #clean train data
-sudo rm -rf data/*
+if [ -f /media/usb/"${DATE}"-default.h5 ];then
+    sudo rm -rf data/*
+fi
 
 #backups
 DATE=$(date "+ %Y-%m-%d %H:%M:%S")
