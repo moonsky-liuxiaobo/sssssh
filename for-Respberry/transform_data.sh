@@ -39,16 +39,16 @@ fi
 #check should not rename
 cd LR/data
 key2=0
-for file in `ls $1`
-    do
-    if [ -d $1"/"$file ];then
-        read_dir $1"/"$file
-    else
-        if [ "$file" == "1" ];then
-        key2=1
-        fi
-    fi
-    done
+#for file in `ls $1`
+#    do
+#    if [ -d $1"/"$file ];then
+#        read_dir $1"/"$file
+#    else
+#        if [ "$file" == "1" ];then
+#        key2=1
+#        fi
+#    fi
+#    done
 
 #start rename
 index=1
