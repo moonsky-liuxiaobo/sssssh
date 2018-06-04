@@ -39,13 +39,13 @@ for file in `ls $1`
 
 #get train_list
 echo ""
-echo "Please choice the documents to train, Enter like:"
+echo "Please select the documents to train, Enter like:" # choice changed to select
 echo "data/1,data/2...data/n..."
 read train_list
 echo $train_list
 cd ..
 python manage.py train --tub=$train_list --model=models/default.h5
-echo -e "\033[4;31m train over! \033[4;31m "
+echo -e "\033[4;31m training process is over! \033[4;31m "
 
 #clean train data
 if [ -f /media/usb/"${DATE}"-default.h5 ];then

@@ -4,7 +4,7 @@
 #check SDcard
 DIRECTORY="/media/usb/"
 if [ "`ls -A $DIRECTORY`" = "" ];then
-	echo -e "Not found your \033[4;31m SDcard \033[0m! Please check it!"
+	echo -e "\033[4;31m SDcard \033[0m not found! Please check your SDcard reader!" 
 	exit 0
 fi
 
@@ -12,14 +12,14 @@ fi
 cd LearningRover/LR_car/
 DIRECTORY="data"
 if [ ! "`ls -A $DIRECTORY`" = "" ];then
-	echo -e "You data doucument has \033[4;31m old data \033[0m, Please delete it!"
+	echo -e "There is \033[4;31m old data \033[0m in your data folder, Please delete it before training!"
 	echo "[y/n]?" 
 	read key
 	if [ $key = 'y' ];then
 		cd data/
 		sudo rm -rf *
 		cd ..
-		echo "Successful delete old data!"
+		echo "old data deleting finished!" 
 	else
 		echo "You must delete it!"
 		exit 0
@@ -41,14 +41,14 @@ fi
 
 #copy data.tar and
 sudo cp /media/usb/data-"${raspberry_id}".tar.gz data/
-echo "Successful copy to data/!"
+echo "Data copy finished!"
 
 #tar data
 cd data
 sudo chmod 777 *
 sudo tar -xvf "data-"${raspberry_id}.tar.gz
 sudo rm "data-"${raspberry_id}.tar.gz
-echo -e "Successful tar to data/ !"
+echo -e "Tar operation finished!"
 sudo chmod 777 *
 
 #Permissions
