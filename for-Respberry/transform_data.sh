@@ -3,7 +3,7 @@
 #check SD card is get ready
 DIRECTORY="/media/usb/"
 if [ "`ls -A $DIRECTORY`" = "" ];then
-    echo -e "You have \033[4;31m not inserted \033[0m the SD card correctly! Please check it!"
+    echo -e "The SD card \033[4;31m is not inserted \033[0m correctly! Please check it!"
     exit 0
 fi
 
@@ -90,16 +90,16 @@ echo "Choose which data folder you want to copy, please input the folder number 
 echo " 1/ 2/ 3/... n/"
 read foldes_list
 echo $foldes_list
-echo "Choosed Success!"
+echo "Data folder selection finished!"
 
 #tar data to SD casr
 ls
 sudo tar -zcvf /home/pi/LR/logs/data-${raspberry_id}.tar.gz $foldes_list
 sudo cp /home/pi/LR/logs/data-${raspberry_id}.tar.gz /media/usb/
-echo "Copied Success! "
+echo "Copy Finished! "
 
 if [ -f "/media/usb/data-"${raspberry_id}".tar.gz" ];then
     sudo rm -rf /home/pi/LR/data/*
 else
-    echo "Copied failure! Please try again!"
+    echo "Failed to copy! Please try again!"
 fi
